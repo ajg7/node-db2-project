@@ -7,7 +7,7 @@ const server = express();
 
 server.use(express.json());
 
-server.use("/api/cars", carsRouter);
+server.use("/cars", carsRouter);
 
 server.get("/", (request, response) => {
     response.status(200).json({Frankenstein: "It's alive"})
