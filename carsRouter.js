@@ -6,12 +6,23 @@ const router = express.Router();
 
 router.get("/", (request, response) => {
     db.select("*").from("cars")
-        .then(accounts => {
-            response.status(200).json({data: accounts})
+        .then(cars => {
+            response.status(200).json({data: cars})
         })
         .catch(error => {
             console.log(error)
             response.status(500).json({error: error.message})
+        })
+})
+
+router.get("/:id", (request, response) => {
+    db("cars").where("id", "=", request.params.id)
+        .then(cars => {
+            response.status(200).json({data: cars});
+        })
+        .catch(error => {
+            console.log(error);
+            response.status(500).json({error: error.message});
         })
 })
 
