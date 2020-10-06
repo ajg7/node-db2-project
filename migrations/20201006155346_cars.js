@@ -1,27 +1,27 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable("cars", tbl => {
+    return knex.schema.createTable("cars", table => {
         // Provider Key
-        tbl.increments();
+        table.increments();
 
         //Make and Model
-        tbl.string("CarMake", 512).notNullable().index();
-        tbl.string("CarModel", 512).notNullable().index();
+        table.string("CarMake", 512).notNullable().index();
+        table.string("CarModel", 512).notNullable().index();
 
         //Year
-        tbl.integer("Year").notNullable().index();
+        table.integer("Year").notNullable().index();
 
         //Mileage
-        tbl.decimal("Mileage").notNullable().index();
+        table.decimal("Mileage").notNullable().index();
 
         //VIN #
-        tbl.integer("VIN").notNullable().unique().index();
+        table.integer("VIN").notNullable().unique().index();
 
         //Transmission Type
-        tbl.string("TransmissionType").index();
+        table.string("TransmissionType").index();
 
         //Clean Status (True or False)
-        tbl.boolean("Clean").index();
+        table.boolean("Clean").index();
     })
 };
 
