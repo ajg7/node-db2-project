@@ -1,7 +1,7 @@
 const express = require("express");
 
-const db = require("../data/dbConfig.js");
-const accountsRouter = require("../carsRouter");
+const db = require("../connection");
+const carsRouter = require("../carsRouter");
 
 const server = express();
 
