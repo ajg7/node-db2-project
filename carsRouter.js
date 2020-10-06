@@ -26,5 +26,17 @@ router.get("/:id", (request, response) => {
         })
 })
 
+//Create
+
+router.post("/", (request, response) => {
+    db("cars").insert(request.body, "id")
+        .then(ids => {
+            response.status(201).json({data: ids});
+        })
+        .catch(error => {
+            console.log(error);
+            response.status(500).json({error: error.message});
+        })
+})
 
 module.exports = router;
